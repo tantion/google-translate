@@ -1,6 +1,27 @@
 (function () {
     'use strict';
 
+    // key map
+    var keyboard = '';
+
+    function mapKeyboard (evt) {
+        var keys = ['metaKey', 'ctrlKey', 'shiftKey', 'altKey'];
+        var flag = 0;
+
+        if (keys.indexOf(keyboard) > 0) {
+            keys.forEach(function (k) {
+                flag += evt[k];
+            });
+            if (flag && evt[keyboard]) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     function isInjectTranslateIframe () {
         var url = location.href;
         if (url.match(/^https?:\/\/translate\.google\./i) && window.top !== window) {
@@ -23,7 +44,7 @@
 
     function detectSelectedText (evt) {
         var txt = getSelectedText();
-        if (txt) {
+        if (txt && mapKeyboard(evt)) {
             triggerSelectedEvent(evt, txt);
         }
     }
@@ -45,6 +66,10 @@
         if (message.action === 'getSelectedText') {
             resp(getSelectedText());
         }
+    });
+
+    chrome.runtime.sendMessage({action: 'keypress'}, function (data) {
+        keyboard = data;
     });
 })();
 
@@ -186,4 +211,5 @@
         });
 
     }, false);
+
 })();

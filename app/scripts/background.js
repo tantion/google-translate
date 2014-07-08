@@ -15,3 +15,10 @@ chrome.webRequest.onHeadersReceived.addListener(function(info) {
     types: ['sub_frame']
 },
 ['blocking', 'responseHeaders']);
+
+chrome.runtime.onMessage.addListener(function (message, sender, response) {
+    var action = message.action;
+    if (action === 'keypress') {
+        response(localStorage.getItem('keypress'));
+    }
+});

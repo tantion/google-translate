@@ -13,15 +13,21 @@
         <div class="tx-google-translate-container">
             <h2>translate options</h2>
             <form action="">
-                <label for="tx-keypress">text selected combine with</label>
-                <select id="tx-keypress" name="tx-keypress">
-                    <option value="none">none</option>
-                    <option value="metaKey">command key</option>
-                    <option value="ctrlKey">ctrl key</option>
-                    <option value="shiftKey">shift key</option>
-                    <option value="altKey">alt key</option>
-                </select>
-                <span>trigger translate on page.</span>
+                <ul>
+                    <li>
+                        <label for="tx-keypress">Selected text combine with</label>
+                        <select id="tx-keypress" name="tx-keypress">
+                            <option value="none">none</option>
+                            <option value="metaKey">command key</option>
+                            <option value="ctrlKey">ctrl key</option>
+                            <option value="shiftKey">shift key</option>
+                            <option value="altKey">alt key</option>
+                        </select>
+                        <span>trigger translate on page.</span>
+                     </li>
+                     <li>You can set keyboard shortcut in <a href="chrome://extensions/#footer-section" target="_blank">chrome://extensions/#footer-section</a> tab</li>
+                     <li>When you open the popup page, the selected text in then current tab will be translated automatically.</li>
+                </ul>
             </form>
         </div>
 
