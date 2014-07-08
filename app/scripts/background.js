@@ -9,7 +9,6 @@ chrome.webRequest.onHeadersReceived.addListener(function(info) {
             headers.splice(i, 1); // Remove header
         }
     }
-    console.log(info);
     return {responseHeaders: headers};
 }, {
     urls: ['*://translate.google.com/*', '*://translate.google.com.hk/*'],
