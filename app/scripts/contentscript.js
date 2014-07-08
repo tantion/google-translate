@@ -8,7 +8,7 @@
         var keys = ['metaKey', 'ctrlKey', 'shiftKey', 'altKey'];
         var flag = 0;
 
-        if (keys.indexOf(keyboard) > 0) {
+        if (keys.indexOf(keyboard) > -1) {
             keys.forEach(function (k) {
                 flag += evt[k];
             });
@@ -178,7 +178,6 @@
             if (iframe) {
                 var before = iframe.getAttribute('src');
                 var url = 'https://translate.google.com/?q=' + encodeURI(txt);
-                console.log(before, url);
                 if (before !== url) {
                     iframe.setAttribute('src', url);
                 }
