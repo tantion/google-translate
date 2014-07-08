@@ -4,6 +4,17 @@
 }
 .tx-google-translate-iframe {
     width: 790px;
-    height: 800px;
+    height: 400px;
     border: 0;
+}
+.tx-google-translate-pane {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 3px black;
+}
+.tx-google-translate-show {
+    display: block;
 }

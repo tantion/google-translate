@@ -34,7 +34,7 @@
         });
 
         // hide some block
-        var tx = document.querySelector('.gb_Pb.gb_Aa');
+        var tx = document.getElementById('gt-appname');
         if (tx) {
             tx.setAttribute('title', chrome.i18n.getMessage('newTab'));
             tx.setAttribute('target', '_blank');
