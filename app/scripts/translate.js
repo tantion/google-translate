@@ -33,6 +33,7 @@
             elem.classList.add('tx-google-translate-hide');
         });
 
+        // hide some block
         var tx = document.querySelector('.gb_Pb.gb_Aa');
         if (tx) {
             tx.setAttribute('title', chrome.i18n.getMessage('newTab'));
@@ -41,5 +42,18 @@
                 this.setAttribute('href', location.href);
             });
         }
+
+        //
+        // Fixed auto translate
+        //
+        window.addEventListener('load', function () {
+            var elem = document.getElementById('gt-submit');
+            var evt = new MouseEvent('click', {
+                'view': window,
+                'bubbles': true,
+                'cancelable': true
+            });
+            elem.dispatchEvent(evt);
+        });
     })();
 })();
