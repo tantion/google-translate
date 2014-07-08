@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "translate",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "google translate for chrome extension",
+    "description": "The description of the application"
+  },
+  "newTab": {
+    "message": "open in new tab",
+    "description": "open the iframe url in new tab"
+  }
+}
