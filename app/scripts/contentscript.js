@@ -12,14 +12,14 @@
             keys.forEach(function (k) {
                 flag += evt[k];
             });
-            if (flag && evt[keyboard]) {
+            if (flag === 1 && evt[keyboard]) {
                 return true;
             } else {
                 return false;
             }
         }
 
-        return true;
+        return false;
     }
 
     function isInjectTranslateIframe () {
@@ -69,6 +69,7 @@
     });
 
     chrome.runtime.sendMessage({action: 'keypress'}, function (data) {
+        console.log(data);
         keyboard = data;
     });
 })();

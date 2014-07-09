@@ -15,7 +15,15 @@
     }
 
     function loadOption () {
-        return localStorage.getItem('keypress') || 'none';
+        var key = localStorage.getItem('keypress');
+        if (!key) {
+            if (navigator.userAgent.indexOf('Macintosh') > -1) {
+                key = 'metaKey';
+            } else {
+                key = 'ctrlKey';
+            }
+        }
+        return key;
     }
 
     if (select) {

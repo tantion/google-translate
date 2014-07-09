@@ -1,5 +1,17 @@
 'use strict';
 
+function loadOption () {
+    var key = localStorage.getItem('keypress');
+    if (!key) {
+        if (navigator.userAgent.indexOf('Macintosh') > -1) {
+            key = 'metaKey';
+        } else {
+            key = 'ctrlKey';
+        }
+    }
+    return key;
+}
+
 // remove frame-option for translate
 chrome.webRequest.onHeadersReceived.addListener(function(info) {
     var headers = info.responseHeaders;
@@ -19,6 +31,6 @@ chrome.webRequest.onHeadersReceived.addListener(function(info) {
 chrome.runtime.onMessage.addListener(function (message, sender, response) {
     var action = message.action;
     if (action === 'keypress') {
-        response(localStorage.getItem('keypress'));
+        response(loadOption());
     }
 });
