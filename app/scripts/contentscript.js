@@ -69,7 +69,6 @@
     });
 
     chrome.runtime.sendMessage({action: 'keypress'}, function (data) {
-        console.log(data);
         keyboard = data;
     });
 })();
