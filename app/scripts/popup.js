@@ -20,6 +20,12 @@
                 };
             }
 
+            if (!txt) {
+                txt = localStorage.getItem('translate');
+            } else {
+                localStorage.setItem('translate', txt);
+            }
+
             if (txt) {
                 src += '?q=' + encodeURI(txt);
             }
