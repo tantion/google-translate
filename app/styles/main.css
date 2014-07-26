@@ -42,3 +42,27 @@
     background-image: none;
     padding: 200px 0 0 200px;
 }
+
+/* options style */
+.tx-google-translate-options-html,
+.tx-google-translate-options-body {
+    width: 100%;
+    height: 100%;
+}
+.tx-google-translate-options-body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(236, 236, 236);
+}
+.tx-google-translate-options-container {
+    width: 800px;
+    height: 400px;
+    margin: 100px auto 0;
+    border: 1px solid silver;
+    border-radius: 4px;
+    box-shadow: 0 0 1px 1px silver;
+    background-color: white;
+}
+.tx-google-translate-options-container h2 {
+    text-align: center;
+}
