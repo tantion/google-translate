@@ -3,20 +3,29 @@
     'use strict';
 
     var elem = document.querySelector('.tx-google-translate-lazy-load');
+    var pane = document.querySelector('.tx-google-translate-pane');
 
     function translate (txt) {
+        if (pane) {
+            pane.classList.remove('loaded');
+            pane.classList.remove('error');
+        }
+
         if (elem) {
             var src = elem.dataset.src;
             var before = elem.getAttribute('src');
 
             if (before === 'about:blank') {
                 elem.onload = function () {
-                    this.classList.remove('tx-google-translate-error');
-                    this.classList.add('tx-google-translate-loaded');
+                    console.log(elem);
+                    if (pane) {
+                        pane.classList.add('loaded');
+                    }
                 };
                 elem.onerror = function () {
-                    this.classList.remove('tx-google-translate-loaded');
-                    this.classList.add('tx-google-translate-error');
+                    if (pane) {
+                        pane.classList.add('error');
+                    }
                 };
             }
 
