@@ -42,6 +42,20 @@
     background-image: none;
     padding: 200px 0 0 200px;
 }
+.tx-google-translate-pane-title {
+    position: relative;
+}
+.tx-google-translate-close {
+    display: none;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    z-index: 10000;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    box-sizing: content-box;
+}
 
 /* options style */
 .tx-google-translate-options-html,
