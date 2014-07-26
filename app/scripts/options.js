@@ -32,4 +32,15 @@
             saveOption(getOption());
         });
     }
+
+    var link = document.querySelector('#open-tab-link');
+    if (link) {
+        link.addEventListener('click', function (evt) {
+            evt.preventDefault();
+            chrome.runtime.sendMessage({
+                action: 'openLink',
+                message: this.href
+            });
+        }, false);
+    }
 })();

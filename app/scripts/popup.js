@@ -17,7 +17,6 @@
 
             if (before === 'about:blank') {
                 elem.onload = function () {
-                    console.log(elem);
                     if (pane) {
                         pane.classList.add('loaded');
                     }

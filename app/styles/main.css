@@ -6,6 +6,7 @@
     width: 790px;
     height: 400px;
     border: 0;
+    background: url('chrome-extension://__MSG_@@extension_id__/images/loading.gif') no-repeat center center;
 }
 .tx-google-translate-pane {
     display: none;

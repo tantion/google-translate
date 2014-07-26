@@ -149,7 +149,7 @@
             pane.setAttribute('id', id);
             pane.classList.add('tx-google-translate-pane');
 
-            pane.innerHTML = '<div class="tx-google-translate-pane-title"><span class="tx-google-translate-close"></span></div>' +
+            pane.innerHTML = '<div class="tx-google-translate-pane-title"><span class="tx-google-translate-close">&#10006;</span></div>' +
                 '<div class="tx-google-translate-content">' +
                 '<iframe src="https://translate.google.com/" id="tx-google-translate-iframe-elem" class="tx-google-translate-iframe"></iframe></div>';
 

@@ -12,6 +12,12 @@ function loadOption () {
     return key;
 }
 
+function openLinkInTab (url) {
+    if (url) {
+        chrome.tabs.create({url: url});
+    }
+}
+
 // remove frame-option for translate
 chrome.webRequest.onHeadersReceived.addListener(function(info) {
     var headers = info.responseHeaders;
@@ -30,7 +36,14 @@ chrome.webRequest.onHeadersReceived.addListener(function(info) {
 
 chrome.runtime.onMessage.addListener(function (message, sender, response) {
     var action = message.action;
-    if (action === 'keypress') {
-        response(loadOption());
+    var msg = message.message;
+
+    switch (action) {
+        case 'keypress':
+            response(loadOption());
+            break;
+        case 'openLink':
+            openLinkInTab(msg);
+            break;
     }
 });
