@@ -18,6 +18,9 @@
                 return false;
             }
         }
+        else if (keyboard === 'none') {
+            return true;
+        }
 
         return false;
     }
@@ -139,6 +142,8 @@
     function showTranslatePane (time, x, y) {
         var id = 'tx-google-translate-iframe-pane';
         var pane = document.getElementById(id);
+        var iframe = null;
+
         if (!pane) {
             pane = document.createElement('div');
             pane.setAttribute('id', id);
@@ -149,7 +154,21 @@
                 '<iframe src="https://translate.google.com/" id="tx-google-translate-iframe-elem" class="tx-google-translate-iframe"></iframe></div>';
 
             document.body.appendChild(pane);
+
+            iframe = document.getElementById('tx-google-translate-iframe-elem');
+
+            if (iframe) {
+                iframe.onload = function () {
+                    pane.classList.add('loaded');
+                };
+                iframe.onerror = function () {
+                    pane.classList.add('error');
+                };
+            }
         }
+
+        pane.classList.remove('loaded');
+        pane.classList.remove('error');
 
         x -= 20;
         y += 15;
