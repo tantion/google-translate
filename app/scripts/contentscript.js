@@ -199,6 +199,11 @@
                 var url = 'https://translate.google.com/?q=' + encodeURI(txt);
                 if (before !== url) {
                     iframe.setAttribute('src', url);
+                } else {
+                    var pane = document.getElementById('tx-google-translate-iframe-pane');
+                    if (pane) {
+                        pane.classList.add('loaded');
+                    }
                 }
                 resolve();
             } else {
